@@ -1,5 +1,6 @@
 module.exports = {
   apps : [{
+    name: 'Remote Req Stats',
     script: './server/server.js',
   }],
   deploy : {
