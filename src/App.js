@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Dashboard from './containers/Dashboard/Dashboard.js';
 import List from './containers/List/List.js';
 import { Card2, Card3, Card4, Card5 } from './components/Card/Card.js';
-import { BrowserRouter, Route, Router, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 // import './App.css';
 
 const { NODE_ENV } = process.env;
