@@ -10,6 +10,8 @@ module.exports = {
       ref  : 'origin/master',
       repo : 'git@github.com:RemoteReq/Stats.git',
       path : '/home/ubuntu/',
+      'pre-deploy-local': "echo 'beginning production deployment'",
+      'post-setup': 'npm --version,',
       'post-deploy' : 'npm install && npm run build && pm2 startOrRestart ecosystem.config.js --env production',
     },
   }
