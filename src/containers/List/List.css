@@ -1,0 +1,10 @@
+.list {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.horizontal-list {
+  display: flex;
+}
