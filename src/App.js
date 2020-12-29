@@ -93,9 +93,7 @@ class App extends Component {
       users: response3,
       employers: response4,
       jobs: response5
-    }, () => {
-      console.log(this.state)
-    })
+    });
   }
 
   render() {
