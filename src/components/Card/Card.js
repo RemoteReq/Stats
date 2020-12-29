@@ -17,8 +17,6 @@ const Card1 = ({ name, data, path }) => {
 }
 
 const Card2 = ({ data }) => {
-  console.log(data);
-
   return (
     <div className="card">
       <p>{data.emailId}</p>

@@ -16,8 +16,6 @@ class Dashboard extends Component {
     const { employers } = this.props;
     const { jobs } = this.props;
 
-    console.log('in Dashboard', subscribers, demoRequests)
-
     return (
       <div className="dashboard">
         <h1>RemoteReq Stats Dashboard</h1>

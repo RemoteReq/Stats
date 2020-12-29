@@ -28,7 +28,7 @@ class App extends Component {
         return response.json()
       })
       .then((json) => {
-        console.log('response1', json);
+        // console.log('response1', json);
         
         return(json);
       })
@@ -42,7 +42,7 @@ class App extends Component {
         return response.json()
       })
       .then((json) => {
-        console.log('response2', json);
+        // console.log('response2', json);
         return(json);
       })
       .catch(error => console.log(error)),
@@ -55,7 +55,7 @@ class App extends Component {
         return response.json();
       })
       .then((json) => {
-        console.log('response3', json);
+        // console.log('response3', json);
         return json;
       })
       .catch(error => console.log(error)),
@@ -68,7 +68,7 @@ class App extends Component {
         return response.json();
       })
       .then((json) => {
-        console.log('response4', json);
+        // console.log('response4', json);
         return json;
       })
       .catch(error => console.log(error)),
@@ -81,7 +81,7 @@ class App extends Component {
         return response.json();
       })
       .then((json) => {
-        console.log('response5', json);
+        // console.log('response5', json);
         return json;
       })
       .catch(error => console.log(error)),
