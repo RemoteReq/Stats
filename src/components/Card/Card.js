@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import JobStatus from '../JobStatus/JobStatus.js';
 import './Card.css';
 
 const Card1 = ({ name, data, path }) => {
@@ -53,6 +54,13 @@ const Card5 = ({ data }) => {
   return (
     <div className="card">
       <h2>{data.title}</h2>
+      <JobStatus 
+        hasMatches={data.matchesCandidateFlag}
+        firstPaymentStatus={data.firstPaymentStatus}
+        secondPaymentStatus={data.hiringPaymentStatus}
+        hiredStatus={data.hiredStatus}
+      />
+
       <h3>{data.companyName}</h3>
 
       <p>{data.jobType}</p>
