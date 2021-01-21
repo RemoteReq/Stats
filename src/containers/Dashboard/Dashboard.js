@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card1, SelectorCard } from "../../components/Card/Card.js";
+import { Card1, SelectorCard, CouponCard } from "../../components/Card/Card.js";
 import './Dashboard.css';
 
 class Dashboard extends Component {
@@ -45,6 +45,9 @@ class Dashboard extends Component {
             />
             <SelectorCard
               path="/selector"
+            />
+            <CouponCard
+              path="/coupon"
             />
           </div>
           

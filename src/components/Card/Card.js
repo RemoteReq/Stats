@@ -78,11 +78,20 @@ const SelectorCard = ({path}) => {
   )
 }
 
+const CouponCard = ({path}) => {
+  return (
+    <Link to={path} className="card">
+      <h2>Coupons</h2>
+    </Link>
+  )
+}
+
 export {
   Card1,
   Card2,
   Card3,
   Card4,
   Card5,
-  SelectorCard
+  SelectorCard,
+  CouponCard
 }

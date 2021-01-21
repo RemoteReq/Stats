@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Dashboard from './containers/Dashboard/Dashboard.js';
 import List from './containers/List/List.js';
 import Selector from './components/Selector/Selector.js';
+import Coupon from './components/Coupon/Coupon.js'; 
 import { Card2, Card3, Card4, Card5 } from './components/Card/Card.js';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 // import './App.css';
@@ -139,6 +140,10 @@ class App extends Component {
 
             <Route path="/selector">
               <Selector employers={employers} users={users}/>
+            </Route>
+
+            <Route>
+              <Coupon />
             </Route>
           </Switch>
         </BrowserRouter>
