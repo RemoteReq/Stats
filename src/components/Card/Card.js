@@ -40,12 +40,39 @@ const Card3 = ({ data }) => {
 
 const Card4 = ({ data }) => {
   return (
-    <div className="card">
+    <div className="card-4">
       <h2>{data.fullName}</h2>
+      {
+        Object.keys(data).map((key, i) => {
+          const value = data[key];
+          
+          if (Array.isArray(value)) {
+            return (
+              <div key={i}>
+                <h3>{key}</h3>
+                <ul>
+                {
+                  value.map((element, j) => {
+                    return(
+                      <li key={j}>{element}</li>
+                      )
+                    })
+                }
+                </ul>
+              </div>
+            )
+          }
 
-      <p>{data.username}</p>
-      <p>{data.email}</p>
-      
+        
+          return (
+            <div key={i}>
+              <h3>{key}</h3>
+              <p>{value}</p>
+            </div>
+          )
+        })
+      }
+
     </div>
   )
 }

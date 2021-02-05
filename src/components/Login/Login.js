@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 
 class Login extends Component {
   constructor(props) {
@@ -11,8 +12,6 @@ class Login extends Component {
     return (
       <div>
         
-        
-
       </div>
     )
   }
