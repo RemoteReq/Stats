@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card1, SelectorCard, CouponCard } from "../../components/Card/Card.js";
+import { Card1, SelectorCard, CouponCard, DefaultCard } from "../../components/Card/Card.js";
 import './Dashboard.css';
 
 class Dashboard extends Component {
@@ -43,6 +43,12 @@ class Dashboard extends Component {
                    data={jobs}
                    path="/jobs"
             />
+
+            <DefaultCard 
+              path="/jobBoard"
+              name="Job Board"
+            />
+
             <SelectorCard
               path="/selector"
             />

@@ -10,8 +10,22 @@ class Login extends Component {
 
   render() {
     return (
-      <div>
-        
+      <div className="dashboard">
+  
+        <div className="list">
+
+          <input
+            placeholder="username"
+            />
+
+          <input
+            placeholder="password"
+            />
+
+            <button>
+              Login
+            </button>
+        </div>
       </div>
     )
   }

@@ -3,8 +3,12 @@ import Dashboard from './containers/Dashboard/Dashboard.js';
 import List from './containers/List/List.js';
 import Selector from './components/Selector/Selector.js';
 import Coupon from './components/Coupon/Coupon.js'; 
+import Login from './components/Login/Login.js';
+// import JobForm from './components/JobForm/JobForm.js';
+import JobBoard from './containers/JobBoard/JobBoard.js';
+// import JobList from 
 import { Card2, Card3, Card4, Card5 } from './components/Card/Card.js';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, useRouteMatch } from 'react-router-dom';
 // import './App.css';
 
 const { NODE_ENV } = process.env;
@@ -142,7 +146,15 @@ class App extends Component {
               <Selector employers={employers} users={users}/>
             </Route>
 
-            <Route>
+            <Route path="/login">
+              <Login />
+            </Route>
+
+            <Route path="/jobBoard">
+              <JobBoard />
+            </Route>
+
+            <Route path="/coupon">
               <Coupon />
             </Route>
           </Switch>
