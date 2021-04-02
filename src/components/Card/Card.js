@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams, useRouteMatch } from 'react-router-dom';
 import JobStatus from '../JobStatus/JobStatus.js';
 import './Card.css';
 
@@ -113,6 +113,15 @@ const CouponCard = ({path}) => {
   )
 }
 
+const DefaultCard = ({name, path}) => {
+
+  return (
+    <Link to={path} className="card">
+      <h3>{name || 'name'}</h3>
+    </Link>
+  ) 
+}
+
 export {
   Card1,
   Card2,
@@ -120,5 +129,6 @@ export {
   Card4,
   Card5,
   SelectorCard,
-  CouponCard
+  CouponCard,
+  DefaultCard
 }
