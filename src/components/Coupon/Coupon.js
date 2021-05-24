@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
-// const url = 'https://dev.remotereq.com';
-const url = 'http://localhost:3030';
+const url = 'https://dev.remotereq.com';
+// const url = 'http://localhost:3030';
 
 class Coupon extends Component {
   constructor(props){
