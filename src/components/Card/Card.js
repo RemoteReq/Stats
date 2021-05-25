@@ -108,7 +108,7 @@ const SelectorCard = ({path}) => {
 const CouponCard = ({path}) => {
   return (
     <Link to={path} className="card">
-      <h2>Coupons</h2>
+      <h2>Promo Code</h2>
     </Link>
   )
 }

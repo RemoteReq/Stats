@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import './Coupon.css';
 
-const url = 'https://dev.remotereq.com';
-// const url = 'http://localhost:3030';
+// const url = 'https://dev.remotereq.com';
+const url = 'http://localhost:3030';
 
 class Coupon extends Component {
   constructor(props){
@@ -10,10 +11,13 @@ class Coupon extends Component {
 
     this.state = {
       discountType: '',
+      appliesToAccessFee: false,
+      appliesToHireFee: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.submitCoupon = this.submitCoupon.bind(this);
+    this.toggleAppliesTo = this.toggleAppliesTo.bind(this);
   }
 
   componentDidMount() {
@@ -24,21 +28,30 @@ class Coupon extends Component {
       const latestCoupon = response.data[0];
 
       this.setState({
-        latestCode: latestCoupon.code,
-        latestAmount: latestCoupon.amount,
-        latestDiscountType: latestCoupon.discountType,
+        ...this.state,
+        currentCoupon: {
+          code: latestCoupon.code || '',
+          amount: latestCoupon.amount || '',
+          discountType: latestCoupon.discountType || '',
+          appliesToAccessFee: latestCoupon.appliesToAccessFee || false,
+          appliesToHireFee: latestCoupon.appliesToHireFee || false,
+        }
+      }, () => {
+        console.log(this.state);
       })
     })
   }
 
   submitCoupon(e) {
     e.preventDefault();
-    const { code, amount, discountType } = this.state || '';
+    const { code, amount, discountType, appliesToAccessFee, appliesToHireFee } = this.state || '';
 
     const coupon = {
       code,
       amount,
       discountType,
+      appliesToAccessFee,
+      appliesToHireFee,
     }
 
     this.setState({
@@ -61,105 +74,143 @@ class Coupon extends Component {
     })
   }
 
-  toggleDiscountType() {
+  toggleAppliesTo(e) {
+    console.log('click')
 
+    this.setState({
+      [e.target.name]: !this.state[e.target.name],
+    }, () => {
+      console.log(this.state)
+    })
   }
+
+  // deletePromoCode(){
+  //   axios
+  // }
 
   render() {
     const { discountType } = this.state;
-    const { latestCode, latestAmount, latestDiscountType } = this.state || '';
+    const { currentCoupon } = this.state;
+    const { appliesToAccessFee, appliesToHireFee }= this.state;
 
     return (
-      <div className="list">
+      <div>
+        {
+          currentCoupon ? 
+      
+          <div className="list coupon">
+            <h1>Generate Promo Code</h1>
 
-        <h1>Generate Coupon</h1>
+            <h2>Current Promo Code</h2>
 
-        <h2>Current Coupon</h2>
-
-        <h3>Code: </h3>
-        <input 
-          readOnly
-          defaultValue={latestCode}
-          style={{backgroundColor: 'lightGray', border: 'none', outline: 'none'}}
-        />
-
-        <h3>Discount: {latestDiscountType}</h3>
-        <input 
-          readOnly
-          defaultValue={latestAmount}
-          style={{backgroundColor: 'lightGray', border: 'none', outline: 'none'}}
-        />
-
-        <h3>Create new coupon</h3>
-          <input
-            placeholder="Code"
-            name="code"
-            onChange={this.handleChange}
+            <h3>Code: </h3>
+            <input 
+              readOnly
+              defaultValue={currentCoupon.code}
+              style={{backgroundColor: 'lightGray', border: 'none', outline: 'none'}}
             />
 
-          <input
-            placeholder="Discount"
-            name="amount"
-            onChange={this.handleChange}
-          />
+            <h3>Discount: {currentCoupon.discountType}</h3>
+            <input 
+              readOnly
+              defaultValue={currentCoupon.amount}
+              style={{backgroundColor: 'lightGray', border: 'none', outline: 'none'}}
+            />
 
-          <div>
-            <p>Discount Type</p>
+            <h3>Applies To: </h3>
+            {
+              currentCoupon.appliesToAccessFee ? <p>Access Fee</p> : ''
+            }
 
-            <label>
+            {
+              currentCoupon.appliesToHireFee ? <p>Hire Fee</p> : ''
+            }
+
+            <h3>Create new Promo Code</h3>
               <input
-                type="radio"
-                name="discountType"
-                value="flat"
-                checked={discountType === "flat"}
+                placeholder="Code"
+                name="code"
                 onChange={this.handleChange}
                 />
-              &nbsp; Flat
-            </label>          
 
-            <label>
               <input
-                type="radio"
-                name="discountType"
-                value="percentage"
-                checked={discountType === "percentage"}
+                placeholder="Discount"
+                name="amount"
                 onChange={this.handleChange}
-                style={{
-                  marginLeft: '20px'
-                }}
-                />
-                &nbsp; Percentage
-              </label>
-          </div>
-
-          {/* <div>
-            <p>Payment Gateway</p>
-
-            <label>
-              <input 
-                type="checkbox"
               />
-              &nbsp; First
-            </label>
 
-            <label>
-              <input 
-                type="checkbox"
-                style={{
-                  marginLeft: '20px'
-                }}
-              />
-              &nbsp; Second
-            </label>
-          </div> */}
+              <div>
+                <p>Discount Type</p>
 
-          <br/>
+                <label>
+                  <input
+                    type="radio"
+                    name="discountType"
+                    value="flat"
+                    checked={discountType === "flat"}
+                    onChange={this.handleChange}
+                    />
+                  &nbsp; Flat
+                </label>          
 
-          <button
-            onClick={this.submitCoupon}
-            >
-            Create
-          </button>
+                <label>
+                  <input
+                    type="radio"
+                    name="discountType"
+                    value="percentage"
+                    checked={discountType === "percentage"}
+                    onChange={this.handleChange}
+                    style={{
+                      marginLeft: '20px'
+                    }}
+                    />
+                    &nbsp; Percentage
+                  </label>
+              </div>
+
+              <div>
+                <p>Applies to:</p>
+                
+                <label>
+                  <input 
+                    type="checkbox"
+                    name="appliesToAccessFee"
+                    checked={appliesToAccessFee}
+                    onChange={this.toggleAppliesTo}
+                    />
+                  &nbsp; Access Fee
+                </label>
+
+                <label>
+                  <input 
+                    type="checkbox"
+                    name="appliesToHireFee"
+                    checked={appliesToHireFee}
+                    onChange={this.toggleAppliesTo}
+                    style={{
+                      marginLeft: '20px'
+                    }}
+                    />
+                  &nbsp; Hire Fee
+                </label>
+              </div>
+
+              <br/>
+
+              <button
+                onClick={this.submitCoupon}
+                >
+                Create
+              </button>
+            </div>
+
+        :
+
+            <div>
+              loading ...
+            </div>
+      }
+
       </div>
     )
   }
