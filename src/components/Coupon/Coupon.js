@@ -33,8 +33,8 @@ class Coupon extends Component {
           code: latestCoupon.code || '',
           amount: latestCoupon.amount || '',
           discountType: latestCoupon.discountType || '',
-          appliesToAccessFee: latestCoupon.appliesToAccessFee || false,
-          appliesToHireFee: latestCoupon.appliesToHireFee || false,
+          appliesToAccessFee: latestCoupon.appliesToAccessFee || '',
+          appliesToHireFee: latestCoupon.appliesToHireFee || '',
         }
       }, () => {
         console.log(this.state);
@@ -63,11 +63,14 @@ class Coupon extends Component {
       currentCoupon: {
         ...coupon,
       }
+    }, () => {
+      console.log(this.state);
     });
 
     axios.post(`${url}/api/admin/coupon`, coupon)
     .then(response => {
       console.log(response);
+      window.location.reload();
     })
   }
 
@@ -141,6 +144,7 @@ class Coupon extends Component {
               <input
                 placeholder="Discount"
                 name="amount"
+                type="number"
                 onChange={this.handleChange}
               />
 
