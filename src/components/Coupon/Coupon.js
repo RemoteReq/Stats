@@ -58,6 +58,11 @@ class Coupon extends Component {
       code: '',
       amount: '',
       discountType: '',
+      appliesToAccessFee: false,
+      appliesToHireFee: false,
+      currentCoupon: {
+        ...coupon,
+      }
     });
 
     axios.post(`${url}/api/admin/coupon`, coupon)
