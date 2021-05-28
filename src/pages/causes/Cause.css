@@ -1,0 +1,13 @@
+.cause-form input {
+  width: 100%;
+}
+
+.cause-form button {
+  height: auto;
+  width: 100px
+}
+
+.cause-form .submitter {
+  display: flex;
+  justify-content: space-between;
+}

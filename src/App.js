@@ -4,6 +4,7 @@ import List from './containers/List/List.js';
 import Selector from './components/Selector/Selector.js';
 import Coupon from './components/Coupon/Coupon.js'; 
 import Login from './components/Login/Login.js';
+import Causes from './pages/causes/Causes.js';
 // import JobForm from './components/JobForm/JobForm.js';
 import JobBoard from './containers/JobBoard/JobBoard.js';
 // import JobList from 
@@ -156,6 +157,10 @@ class App extends Component {
 
             <Route path="/coupon">
               <Coupon />
+            </Route>
+
+            <Route path="/causes">
+              <Causes />
             </Route>
           </Switch>
         </BrowserRouter>

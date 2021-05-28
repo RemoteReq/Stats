@@ -113,6 +113,14 @@ const CouponCard = ({path}) => {
   )
 }
 
+const CausesCard = ({path}) => {
+  return (
+    <Link to={path} className="card">
+      <h2>Causes</h2>
+    </Link>
+  )
+}
+
 const DefaultCard = ({name, path}) => {
 
   return (
@@ -130,5 +138,6 @@ export {
   Card5,
   SelectorCard,
   CouponCard,
+  CausesCard,
   DefaultCard
 }

@@ -27,19 +27,35 @@ class Coupon extends Component {
 
       const latestCoupon = response.data[0];
 
-      this.setState({
-        ...this.state,
-        currentCoupon: {
-          code: latestCoupon.code || '',
-          amount: latestCoupon.amount || '',
-          discountType: latestCoupon.discountType || '',
-          appliesToAccessFee: latestCoupon.appliesToAccessFee || '',
-          appliesToHireFee: latestCoupon.appliesToHireFee || '',
-        }
-      }, () => {
-        console.log(this.state);
+      if (latestCoupon) {
+
+        this.setState({
+          ...this.state,
+          currentCoupon: {
+            code: latestCoupon.code || '',
+            amount: latestCoupon.amount || '',
+            discountType: latestCoupon.discountType || '',
+            appliesToAccessFee: latestCoupon.appliesToAccessFee || '',
+            appliesToHireFee: latestCoupon.appliesToHireFee || '',
+          }
+        }, () => {
+          console.log(this.state);
+        })
+      } else {
+        this.setState({
+          ...this.state,
+          currentCoupon: {
+            code: '',
+            amount: '',
+            discountType: '',
+            appliesToAccessFee: '',
+            appliesToHireFee: '',
+          }
+        }, () => {
+          console.log(this.state);
+        })
+      }
       })
-    })
   }
 
   submitCoupon(e) {
