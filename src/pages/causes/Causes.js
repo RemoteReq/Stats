@@ -3,7 +3,8 @@ import axios from 'axios';
 
 import './Cause.css';
 
-const url = "http://localhost:3030"
+// const url = "http://localhost:3030";
+const url = "https://dev.remotereq.com";
 
 const CauseForm = ({handleChange, addCause}) => {
   return (
