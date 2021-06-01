@@ -44,10 +44,10 @@ class Dashboard extends Component {
                    path="/jobs"
             />
 
-            <DefaultCard 
+            {/* <DefaultCard 
               path="/jobBoard"
               name="Job Board"
-            />
+            /> */}
 
             <SelectorCard path="/selector" />
 
