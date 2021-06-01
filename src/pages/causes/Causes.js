@@ -82,6 +82,9 @@ class Causes extends Component{
     .then((response) => {
       console.log(response);
     })
+    .then(()=> {
+      window.location.reload();
+    })
   }
 
   removeCause(e) {
@@ -96,6 +99,9 @@ class Causes extends Component{
     axios.post(`${url}/api/admin/remove-cause`, cause)
     .then((response) => {
       console.log(response)
+    })
+    .then(() => {
+      window.location.reload();
     })
   }
 
